@@ -12,17 +12,22 @@ function smallestCommons(arr) {
   }
   
   // make the new results output array 
-  var results = [];
+  var multiples = [];
   
   for (var i = 0; i < 200; i++) {
     if (divideByAll(i, dividers)) {
-      results.push(i);
+      multiples.push(i);
     }
   }
   
   // return the last in the array
   // arr.slice(-1)[0] 
-  return results;
+  for (var i = 0; i < multiples.length; i++) {
+    if (multiples[i] > 0 && multiples[i + 1] % multiples[i] == 0) {
+      return multiples[i];
+    }
+  }
+
 }
 
 function divideByAll(i, dividers) {
