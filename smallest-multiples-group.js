@@ -1,3 +1,4 @@
+// 
 function smallestCommons(arr) {
   // sort in order 
   var sortedArray = arr.sort();
@@ -10,6 +11,29 @@ function smallestCommons(arr) {
     dividers.push(lower);
   }
   
-  return dividers;
+  // make the new results output array 
+  var results = [];
   
+  for (var i = 0; i < 200; i++) {
+    if (divideByAll(i, dividers)) {
+      results.push(i);
+    }
   }
+  
+  // return the last in the array
+  // arr.slice(-1)[0] 
+  return results;
+}
+
+function divideByAll(i, dividers) {
+  for (var dividersIndex = 0; dividersIndex < dividers.length; dividersIndex++) {
+    if (i % dividers[dividersIndex] != 0) {
+      return false;
+    }
+  }
+  return true;
+}
+
+
+smallestCommons([1,5]);
+
