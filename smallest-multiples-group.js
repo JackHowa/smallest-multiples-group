@@ -1,4 +1,4 @@
-// 
+// noprotect
 function smallestCommons(arr) {
   // sort in order 
   var sortedArray = arr.sort();
@@ -14,7 +14,9 @@ function smallestCommons(arr) {
   // make the new results output array 
   var multiples = [];
   
-  for (var i = 0; i < 200; i++) {
+  // not pretty counting up here
+  // should refactor a while loop
+  for (var i = 1; i < 6056821; i++) {
     if (divideByAll(i, dividers)) {
       multiples.push(i);
     }
@@ -22,11 +24,12 @@ function smallestCommons(arr) {
   
   // return the last in the array
   // arr.slice(-1)[0] 
-  for (var i = 0; i < multiples.length; i++) {
-    if (multiples[i] > 0 && multiples[i + 1] % multiples[i] == 0) {
-      return multiples[i];
-    }
-  }
+  return multiples[0];
+//   for (var i = 0; i < multiples.length; i++) {
+//     if (multiples[i] > 0 && multiples[i + 1] % multiples[i] == 0) {
+//       return multiples[i];
+//     }
+//   }
 
 }
 
@@ -40,5 +43,4 @@ function divideByAll(i, dividers) {
 }
 
 
-smallestCommons([1,5]);
-
+smallestCommons([1, 13]);
